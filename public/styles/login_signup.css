@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+html,body{
+	padding:0;
+	margin:0;
+	overflow-x: hidden;
+}
+
+.form-outer{
+	padding-bottom: 1rem;
+	background-color: #fff;
+	
+
+
+}
+.background-header{
+	font-family: 'Archivo', sans-serif;
+    font-weight:600;
+    line-height: 1.14286;
+	font-size: 6rem;
+	color: #fff;
+	position: relative;
+	top: 100px;
+	left: 50px;
+}
+.signin-title{
+	    font-size: 25px;
+    line-height: 1.14286;
+    font-family: 'Archivo', sans-serif;
+    font-weight:600;
+    padding-top: 2rem;
+}
+.pass-reset{
+	text-decoration: none;
+	color: #ccc;
+	transition: 0.3s;
+}
+.col-md-4,
+.col-10,
+.col-md-12{
+	padding: 0;
+}
+
+.pass-reset:hover{
+	text-decoration: underline;
+	color: #000;
+}
+
+.btn{
+	border-radius: 0px !important;
+	font-family: 'Archivo', sans-serif;
+}
+.btn-primary{
+	background-color: transparent !important;
+	color: #000;
+	transition:0.3s; 
+	border: 1px solid #000;
+}
+.btn-primary:hover{
+	background-color: #28a745 !important;
+	color: #fff;
+}
+
+@media screen and (max-width: 992px) { 
+	.background{
+		display: none;
+	}
+	.form-outer{
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+}
