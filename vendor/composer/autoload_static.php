@@ -120,6 +120,8 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
             'Http\\Promise\\' => 13,
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle6\\' => 21,
+            'Hesto\\MultiAuth\\' => 16,
+            'Hesto\\Core\\' => 11,
         ),
         'G' => 
         array (
@@ -333,6 +335,14 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
         array (
             0 => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src',
         ),
+        'Hesto\\MultiAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hesto/multi-auth/src',
+        ),
+        'Hesto\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hesto/core/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -420,7 +430,9 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
     );
 
     public static $classMap = array (
+        'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -436,12 +448,17 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Order' => __DIR__ . '/../..' . '/app/Order.php',
+        'App\\Payment' => __DIR__ . '/../..' . '/app/Payment.php',
+        'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Vendor' => __DIR__ . '/../..' . '/app/Vendor.php',
+        'App\\Vendorstore' => __DIR__ . '/../..' . '/app/Vendorstore.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -1146,6 +1163,25 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Hesto\\Core\\Commands\\AppendContentCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/AppendContentCommand.php',
+        'Hesto\\Core\\Commands\\InstallAndReplaceCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/InstallAndReplaceCommand.php',
+        'Hesto\\Core\\Commands\\InstallCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/InstallCommand.php',
+        'Hesto\\Core\\Commands\\InstallContentCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/InstallContentCommand.php',
+        'Hesto\\Core\\Commands\\InstallFilesCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/InstallFilesCommand.php',
+        'Hesto\\Core\\Commands\\SimpleReplaceContentCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/SimpleReplaceContentCommand.php',
+        'Hesto\\Core\\Commands\\TemplateGeneratorCommand' => __DIR__ . '/..' . '/hesto/core/src/Commands/TemplateGeneratorCommand.php',
+        'Hesto\\Core\\Parsers\\NameParser' => __DIR__ . '/..' . '/hesto/core/src/Parsers/NameParser.php',
+        'Hesto\\Core\\Traits\\CanReplaceKeywords' => __DIR__ . '/..' . '/hesto/core/src/Traits/CanReplaceKeywords.php',
+        'Hesto\\MultiAuth\\Commands\\AuthFilesInstallCommand' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/AuthFilesInstallCommand.php',
+        'Hesto\\MultiAuth\\Commands\\AuthModelInstallCommand' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/AuthModelInstallCommand.php',
+        'Hesto\\MultiAuth\\Commands\\AuthSettingsInstallCommand' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/AuthSettingsInstallCommand.php',
+        'Hesto\\MultiAuth\\Commands\\AuthViewsInstallCommand' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/AuthViewsInstallCommand.php',
+        'Hesto\\MultiAuth\\Commands\\MultiAuthInstallCommand' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/MultiAuthInstallCommand.php',
+        'Hesto\\MultiAuth\\Commands\\Traits\\OverridesCanReplaceKeywords' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/Traits/OverridesCanReplaceKeywords.php',
+        'Hesto\\MultiAuth\\Commands\\Traits\\OverridesGetArguments' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/Traits/OverridesGetArguments.php',
+        'Hesto\\MultiAuth\\Commands\\Traits\\ParsesServiceInput' => __DIR__ . '/..' . '/hesto/multi-auth/src/Commands/Traits/ParsesServiceInput.php',
+        'Hesto\\MultiAuth\\MultiAuthServiceProvider' => __DIR__ . '/..' . '/hesto/multi-auth/src/MultiAuthServiceProvider.php',
+        'Hesto\\MultiAuth\\Traits\\LogsoutGuard' => __DIR__ . '/..' . '/hesto/multi-auth/src/Traits/LogsoutGuard.php',
         'Http\\Adapter\\Guzzle6\\Client' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Client.php',
         'Http\\Adapter\\Guzzle6\\Promise' => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src/Promise.php',
         'Http\\Client\\Exception' => __DIR__ . '/..' . '/php-http/httplug/src/Exception.php',

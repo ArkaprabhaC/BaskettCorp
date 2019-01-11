@@ -49,6 +49,8 @@ return array(
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Client\\' => array($vendorDir . '/php-http/httplug/src'),
     'Http\\Adapter\\Guzzle6\\' => array($vendorDir . '/php-http/guzzle6-adapter/src'),
+    'Hesto\\MultiAuth\\' => array($vendorDir . '/hesto/multi-auth/src'),
+    'Hesto\\Core\\' => array($vendorDir . '/hesto/core/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),

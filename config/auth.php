@@ -36,6 +36,21 @@ return [
     */
 
     'guards' => [
+        'vendor' => [
+            'driver' => 'session',
+            'provider' => 'vendors',
+        ],
+
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +80,21 @@ return [
     */
 
     'providers' => [
+        'vendors' => [
+            'driver' => 'eloquent',
+            'model' => App\Vendor::class,
+        ],
+
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Customer::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +122,24 @@ return [
     */
 
     'passwords' => [
+        'vendors' => [
+            'provider' => 'vendors',
+            'table' => 'vendor_password_resets',
+            'expire' => 60,
+        ],
+
+        'customers' => [
+            'provider' => 'customers',
+            'table' => 'customer_password_resets',
+            'expire' => 60,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'admin_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

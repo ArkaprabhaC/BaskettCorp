@@ -18,11 +18,39 @@
 					</form>
 				</div>
 				<div class="shopping">
-					<!-- Login & Register -->
-					<a href="#" class="navigation-menu">
-						Login/Register
-					</a>
+					
+			
+					@if (Auth::guard('customer')->check())
+					
+						<a href="#" class="navigation-menu">
+							Hi {{Auth::guard('customer')->user()->name}}!
+						</a>
 
+						<a href="/customer/logout" class="navigation-menu">
+							Logout
+						</a>
+
+					@elseif (Auth::guard('vendor')->check())
+						
+						<a href="" class="navigation-menu">
+							Take me to dashboard
+						</a>
+						
+						<a href="/vendor/logout" class="navigation-menu">
+							Logout
+						</a>
+						
+					@else
+						<!-- Login & Register -->
+						<a href="/customer/login" class="navigation-menu">
+							Login
+						</a>
+
+						<a href="/customer/register" class="navigation-menu">
+							Register
+						</a>
+
+					@endif
 					
 					<!-- Cart -->
 					<!--<a href="#">

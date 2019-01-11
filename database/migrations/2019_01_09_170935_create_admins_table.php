@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MakeVendorsTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +12,12 @@ class MakeVendorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vendors', function(Blueprint $table){
-            $table->increments('vendorID');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->string('corporateaddr');
-            $table->string('phone');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->string('email');
-
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class MakeVendorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendors');
+        Schema::drop('admins');
     }
 }
