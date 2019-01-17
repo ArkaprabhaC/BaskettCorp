@@ -1,13 +1,13 @@
 <header class="header">
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="#">Baskett</a></div>
+			<div class="logo"><a href="/">Baskett</a></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="categories.html">Categories</a></li>
-					<li><a href="categories.html">About Us</a></li>
-					<li><a href="categories.html">What We Do</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/categories">Categories</a></li>
+					<li><a href="/categories">About Us</a></li>
+					<li><a href="/categories">What We Do</a></li>
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
@@ -32,7 +32,7 @@
 
 					@elseif (Auth::guard('vendor')->check())
 						
-						<a href="" class="navigation-menu">
+						<a href="/vendor/dashboard" class="navigation-menu">
 							Take me to dashboard
 						</a>
 						

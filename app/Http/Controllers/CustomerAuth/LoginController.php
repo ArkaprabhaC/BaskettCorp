@@ -68,7 +68,8 @@ class LoginController extends Controller
             // Authentication passed...
             return redirect('/');
         }else{
-            echo "something wrong";
+            //echo "something wrong";
+            return redirect('/customer/login')->with('alert','Wrong email or password');
         }
     }
 

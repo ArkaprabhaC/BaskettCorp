@@ -18,6 +18,28 @@
 		<div class="container-fluid">
 			<div class="col-12 mt-5">
 					<div class="col-12 col-md-6 mx-auto">
+										
+						   <!--FORM VALIDATION--->
+						@if(session('alert'))
+							<div class="alert alert-danger page-alert m-3" id="alert-4">
+								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								 {{ session('alert') }}
+							
+							</div>
+						@endif
+
+						@if ($errors->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->all() as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+								</ul>
+							</div>
+						@endif
+						
+
+
 						<div class="signin-title col-10">Baskett Vendor Signup</div>
 						<small >Basic Details</small>
 						<form action="/vendor/register" method="POST" >
@@ -63,20 +85,18 @@
 
 							 <div class="form-group">
 										<select class="form-control" name="state" id="FormControl">
-											<option>Select state</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
+											<option value="not-selected">Select State</option>
+											@foreach($states as $state)
+												<option value="{{$state}}">  {{ $state }} </option>
+											@endforeach
 										</select>
 									</div>
 									<div class="form-group">
 										<select class="form-control" name="city" id="FormControl">
-											<option>Select city</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
+											<option value="not-selected">Select City</option>
+											 @foreach($cities as $city)
+												<option value="{{$city}}">  {{ $city }} </option>
+											@endforeach
 										</select>
 									</div>
 
@@ -99,5 +119,17 @@
 	<script src="{{asset('plugins/easing/easing.js')}}"></script>
 	<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 	<script src="{{asset('js/product_custom.js')}}"></script>
+	<script>
+		$('.box').boxWidget('toggle')
+	</script>
+
+	<script>
+	//Close alert for bootstrap notifications
+		$('.page-alert .close').click(function(e) {
+			e.preventDefault();
+			$(this).closest('.page-alert').slideUp();
+		});
+		
+	</script>
 	</body>
 </html>

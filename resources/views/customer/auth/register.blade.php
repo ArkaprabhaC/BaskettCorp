@@ -18,6 +18,26 @@
 				</div>
 				<div class="col-12 col-md-4" style="height: 100vh;  overflow-y:scroll;">
 					<div class="form-outer pt-5 col-10 col-md-12 pb-5">
+
+						<!--FORM VALIDATION--->
+						@if(session('alert'))
+							<div class="alert alert-danger page-alert m-3" id="alert-4">
+								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								 {{ session('alert') }}
+							
+							</div>
+						@endif
+
+						@if ($errors->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->all() as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+								</ul>
+							</div>
+						@endif
+
 						<div class="signin-title col-10 mx-auto">Sign up</div>
 						<small style="padding-left: 2.1rem;">Vendor signup</small>
 						
@@ -46,25 +66,23 @@
 									</div>
 									<div class="form-group">
 										<select class="form-control" name="state" id="FormControl">
-											<option>Select state</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
+											<option value="not-selected">Select State</option>
+											@foreach($states as $state)
+												<option value="{{$state}}">  {{ $state }} </option>
+											@endforeach
 										</select>
 									</div>
 									<div class="form-group">
 										<select class="form-control" name="city" id="FormControl">
-											<option>Select city</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
+											<option value="not-selected">Select City</option>
+											 @foreach($cities as $city)
+												<option value="{{$city}}">  {{ $city }} </option>
+											@endforeach
 										</select>
 									</div>
 
 									<div class="form-group">
-										<input type="text" class="form-control" name="flatno" id="" aria-describedby="flatInput" placeholder="Enter your flat and house number">
+										<input type="text" class="form-control" name="flat_no" id="" aria-describedby="flatInput" placeholder="Enter your flat and house number">
 									</div>
 
 									<div class="form-group">
@@ -76,7 +94,7 @@
 									</div>
 
 									<div class="form-group">
-										<input type="password" class="form-control" id="" name="chk_password" placeholder="Enter Password">
+										<input type="password" class="form-control" id="" name="chk_password" aria-describedby="passwordInput" placeholder="Enter Password">
 									</div>
 									<div class="form-group">
 										<input type="password" class="form-control" id="" name="password" placeholder="Confirm Password">
@@ -94,5 +112,17 @@
 	<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
 	<script src="{{asset('styles/bootstrap4/bootstrap.min.js')}}"></script>
+	<script>
+		$('.box').boxWidget('toggle')
+	</script>
+
+	<script>
+	//Close alert for bootstrap notifications
+		$('.page-alert .close').click(function(e) {
+			e.preventDefault();
+			$(this).closest('.page-alert').slideUp();
+		});
+		
+	</script>
 	</body>
 	</html>

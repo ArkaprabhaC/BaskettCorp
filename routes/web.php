@@ -88,6 +88,14 @@ Route::group(['prefix' => 'vendor'], function () {
 
   Route::get('/register', 'VendorAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'VendorAuth\RegisterController@register');
+  
+  Route::get('/dashboard', 'VendorAuth\DashboardController@showDashboardPage');
+  Route::post('/dashboard', 'VendorAuth\DashboardController@addProduct');
+  Route::get('/dashboard/removeproduct', 'VendorAuth\DashboardController@showRemoveProductPage');
+  Route::post('/dashboard/removeproduct', 'VendorAuth\DashboardController@removeProduct');
+  Route::get('/dashboard/settings', 'VendorAuth\DashboardController@showSettingsPage');
+  Route::post('/dashboard/settings', 'VendorAuth\DashboardController@updateProfile');
+  Route::post('dashboard/updateprofilepic', 'VendorAuth\DashboardController@updateProfilePicture');
 
   Route::post('/password/email', 'VendorAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'VendorAuth\ResetPasswordController@reset')->name('password.email');

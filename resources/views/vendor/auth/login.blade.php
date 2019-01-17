@@ -18,6 +18,18 @@
 		<div class="container-fluid">
 			<div class="col-12" style="transform: translateY(10%); height: 100vh">
 					<div class="col-12 col-md-6 mx-auto">
+						
+						
+						 <!--FORM VALIDATION--->
+						@if(session('alert'))
+							<div class="alert alert-danger page-alert m-3" id="alert-4">
+								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								 {{ session('alert') }}
+							
+							</div>
+						@endif
+
+
 						<div class="signin-title col-10 pb-4">Baskett Vendor Login</div>
 						
 						<form action="" method="POST" >
@@ -56,5 +68,17 @@
 	<script src="{{asset('plugins/easing/easing.js')}}"></script>
 	<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 	<script src="{{asset('js/product_custom.js')}}"></script>
+	<script>
+		$('.box').boxWidget('toggle')
+	</script>
+
+	<script>
+	//Close alert for bootstrap notifications
+		$('.page-alert .close').click(function(e) {
+			e.preventDefault();
+			$(this).closest('.page-alert').slideUp();
+		});
+		
+	</script>
 	</body>
 </html>

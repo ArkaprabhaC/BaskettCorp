@@ -23,6 +23,17 @@
 				</div>
 				<div class="col-12 col-md-4" style="height: 100vh;  overflow-y:scroll;">
 					<div class="form-outer pt-5 col-10 col-md-12 pb-5">
+
+						<!--FORM VALIDATION--->
+						@if(session('alert'))
+							<div class="alert alert-danger page-alert m-3" id="alert-4">
+								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								 {{ session('alert') }}
+							
+							</div>
+						@endif
+
+
 						<div class="signin-title col-10 mx-auto">Login</div>
 						<small style="padding-left: 2.1rem;">Vendor signin</small>
 						
@@ -62,5 +73,18 @@
 	<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('styles/bootstrap4/popper.js')}}"></script>
 	<script src="{{asset('styles/bootstrap4/bootstrap.min.js')}}"></script>
+	<script>
+		$('.box').boxWidget('toggle')
+	</script>
+
+	<script>
+	//Close alert for bootstrap notifications
+		$('.page-alert .close').click(function(e) {
+			e.preventDefault();
+			$(this).closest('.page-alert').slideUp();
+		});
+		
+	</script>
+
 	</body>
 	</html>

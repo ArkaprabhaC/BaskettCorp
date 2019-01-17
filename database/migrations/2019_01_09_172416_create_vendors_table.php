@@ -19,6 +19,7 @@ class CreateVendorsTable extends Migration
             $table->string('password');
             $table->string('phone');
 
+            $table->string('avatar')->default('default.jpg');
             $table->string('storename');
             $table->string('state');
             $table->string('city');
