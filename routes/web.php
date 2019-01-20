@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'ProductController@index');
+//Route::get('/', 'ProductController@datecal');
 Route::get('/signup', function(){
     return view('signup');
 })->name('signup');
@@ -102,3 +101,4 @@ Route::group(['prefix' => 'vendor'], function () {
   Route::get('/password/reset', 'VendorAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'VendorAuth\ResetPasswordController@showResetForm');
 });
+//Route::get('/','ProductController@index');

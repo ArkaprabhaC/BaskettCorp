@@ -1362,7 +1362,7 @@ class RegisterController extends Controller
 
             $request->validate([
                 'vendorname' => 'required|max:255',
-                'email' => 'required|unique',
+                'email' => 'required|unique:vendors',
                 'password' => 'required',
                 'phone' => 'required',
                 'storename' => 'required',

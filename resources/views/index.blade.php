@@ -1,5 +1,5 @@
-@extends('layout.app')
 
+@extends('layout.app')
 @section('title','Baskett')
 
 @section('custom-styles')
@@ -155,22 +155,25 @@
 				</div>
 			</div>
 			<div class="row products_container">
-
 				<!-- Product -->
+				@if(count($products)>1)
+				@foreach($products as $product)
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
 
-							<img src="images/capsicum2.jpg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
+						<img src="{{url('images',$product->image)}}" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
 							
 							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
+								<div class="text-uppercase">
+									
+									Expires in {{$datediff[$product->id]->days}} days</div>
 							</div>
 						</div>
 						<div class="product_content clearfix">
 							<div class="product_info">
-								<div class="product_name"><a href="product.html">Spencer's Red Capsicum (5 pcs)</a></div>
-								<span class="product_price_old">&#x20B9;10</span>
+								<div class="product_name"><a href="product.html">{{$product->name}} (5 pcs)</a></div>
+								<span class="product_price_old">&#x20B9;{{$product->price}} </span>
 								<span class="product_price_new">&#x20B9;5</span>
 								<span class="product_discount">(10% off)</span>
 							</div>
@@ -182,91 +185,9 @@
 					</div>
 				
 				</div>
-
-				<!-- Product -->
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/kellogs.jpeg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
-
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Kellogs</a></div>
-								<span class="product_price_old">&#x20B9;100</span>
-								<span class="product_price_new">&#x20B9;90</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-
-					</div>
-					
-
-				</div>
-
-				<!-- Product -->
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/nutella.jpeg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
-							
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Nutella</a></div>
-								<span class="product_price_old">&#x20B9;50</span>
-								<span class="product_price_new">&#x20B9;45</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/yoghurt.jpeg" class=" p-4" style="display: block;margin: 1.5rem auto;" height="300" width="320" alt="">
-							
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Yoghurt</a></div>
-								<span class="product_price_old">&#x20B9;30</span>
-								<span class="product_price_new">&#x20B9;27</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-
+				@endforeach
+				@endif
+				
 	
 			</div>
 		</div>
