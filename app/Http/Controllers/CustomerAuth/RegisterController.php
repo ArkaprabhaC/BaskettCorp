@@ -1366,13 +1366,13 @@ class RegisterController extends Controller
             
             $request->validate([
                 'name' => 'required|max:255',
-                'email' => 'required|unique',
+                'email' => 'required|unique:customers',
                 'password' => 'required',
                 'dob' => 'required',
                 'phone' => 'required',
                 'state' => 'required',
                 'city' => 'required',
-                'flatno' => 'required',
+                'flat_no' => 'required',
                 'address' => 'required',
                 'pincode' => 'required',
             ]);
@@ -1386,7 +1386,7 @@ class RegisterController extends Controller
             $customer->phone = $request->get('phone');
             $customer->state = $request->get('state');
             $customer->city = $request->get('city');
-            $customer->flatno = $request->get('flatno');
+            $customer->flatno = $request->get('flat_no');
             $customer->address = $request->get('address');
             $customer->pincode = $request->get('pincode');
     
@@ -1403,7 +1403,7 @@ class RegisterController extends Controller
             }
         }else{
             //echo "Passwords do not match. Please go back and try again";
-            return redirect('/customer/register')->with('alert','Passwords do not match. Please go back and try again.');
+            return redirect('/customer/register')->with('alert','Passwords do not match. Please try again.');
         }
         
     }

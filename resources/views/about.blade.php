@@ -15,11 +15,11 @@
 	<!-- Header -->
 	@include('layout.navbar')
 	
-	<section class="about">
+	<section class="about mb-5">
 		<div class="container-fluid">
 			<div class="hero" style="height: 45vh; ">
 				<div class="section-title text-center text-uppercase" style="padding-top: 180px; font-family: 'Lucida', serif;font-size: 24px;color: #000; "> about us.</div>
-				<div class="section-title-small text-center" style="color: #000; margin-left: 20px;font-family: 'Lucida', serif;font-size: 24px;">
+				<div class="section-title-small text-center" style="color: #000; margin-left: 20px;font-family: 'Lucida', serif;font-size: 24px; border-bottom:1px solid #DEDADA;padding-bottom:10px">
 					We are a team of passionate individuals who have a drive to change the world for the better.
 				</div>
 			</div>
@@ -28,7 +28,7 @@
 			<div class="col-12">
 				<div class="row">
 					<div class="col-12 col-md-4">
-						<img src="https://scontent.fccu1-1.fna.fbcdn.net/v/t1.0-0/p370x247/41461686_1825255194240497_7922701999408152576_n.jpg?_nc_cat=106&oh=1c8a9736305a49e6e317431300561364&oe=5C152AAF" style="border-radius:50%;display: block;margin:15px auto;" alt="Team Member Image" height="270px" width="270px">
+						<img src="images/Arkaprabha.jpg" style="border-radius:50%;display: block;margin:15px auto;" alt="Team Member Image" height="270px" width="270px">
 						<div style="font-family: 'Lucida', serif;font-size: 25px;color: #232323;text-align: center; text-align: center;">Arkaprabha Chatterjee</div>
 						<div style="font-family: 'Lucida', serif;font-size: 19px;color: #232323;text-align: center; text-align: center;">Web-Developer / Co-founder</div>
 						<div class="container">
@@ -64,7 +64,7 @@
 					<div class="col-12 col-md-4">
 						<img src="images/kaustav_new.jpg" style="border-radius:50%;display: block;margin:15px auto;" alt="Team Member Image" height="270px" width="270px">
 						<div style="font-family: 'Lucida', serif;font-size: 25px;color: #232323;text-align: center; text-align: center;">Kaustav Das</div>
-						<div style="font-family: 'Lucida', serif;font-size: 19px;color: #232323;text-align: center; text-align: center;">Co-Founder</div>
+						<div style="font-family: 'Lucida', serif;font-size: 19px;color: #232323;text-align: center; text-align: center;"> PR / Co-Founder</div>
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">

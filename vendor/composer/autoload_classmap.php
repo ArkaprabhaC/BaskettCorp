@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Customer' => $baseDir . '/app/Customer.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -20,10 +21,12 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\CustomerAuth\\CheckoutController' => $baseDir . '/app/Http/Controllers/CustomerAuth/CheckoutController.php',
     'App\\Http\\Controllers\\CustomerAuth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/CustomerAuth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\CustomerAuth\\LoginController' => $baseDir . '/app/Http/Controllers/CustomerAuth/LoginController.php',
     'App\\Http\\Controllers\\CustomerAuth\\RegisterController' => $baseDir . '/app/Http/Controllers/CustomerAuth/RegisterController.php',
     'App\\Http\\Controllers\\CustomerAuth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/CustomerAuth/ResetPasswordController.php',
+    'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
     'App\\Http\\Controllers\\VendorAuth\\DashboardController' => $baseDir . '/app/Http/Controllers/VendorAuth/DashboardController.php',
     'App\\Http\\Controllers\\VendorAuth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/VendorAuth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\VendorAuth\\LoginController' => $baseDir . '/app/Http/Controllers/VendorAuth/LoginController.php',

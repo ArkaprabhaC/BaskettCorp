@@ -99,46 +99,14 @@
     .
     </style>
 
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="{{asset('plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('plugins/OwlCarousel2-2.2.1/animate.css') }}">
-<link href="{{ asset('plugins/colorbox/colorbox.css') }}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
 </head>
 
 <body>
 
-    <!--POPUP ALERT MESSAGES MARKUP-->
-	@if(session('alertsuccess'))
-		<div class="alert alert-success custom-alert" >
-		<strong>{{session('alertsuccess')}}</strong>
-		</div>
-	@endif
+    <p>Dear {{ $custname }},</p>
 
-	@if(session('alerterror'))
-		<div class="alert alert-error custom-alert" >
-		<strong>{{session('alerterror')}}</strong>
-		</div>
-	@endif
-	<!--POPUP ALERT MESSAGES MARKUP END-->
-    
-    <header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			
-			<div class="header_content ml-auto">
-				<div class="shopping">
-						<a href="/" class="navigation-menu">
-							Go back to Baskett
-						</a>
-				</div>
-			</div>
-		</div>
-	</header>
-
-
+    <p>Thank you for shopping with us. Underneath is the copy of the invoice on your latest order. Just show the token to the shopkeeper to receive your products.</p>
+   
     <div class="invoice-box" style="margin-top:5rem; margin-bottom:2rem;">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
@@ -146,7 +114,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="images/baskett-logo.jpeg" style="width:100%; max-width:300px;">
+                                <img src="{{asset('images/baskett-logo.jpeg')}}" style="width:100%; max-width:300px;">
                             </td>
                             
                             <td>

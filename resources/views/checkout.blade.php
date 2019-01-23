@@ -8,6 +8,21 @@
 @endsection
 
 @section('main-body')
+
+	<!--POPUP ALERT MESSAGES MARKUP-->
+	@if(session('alertsuccess'))
+		<div class="alert alert-success custom-alert" >
+		<strong>{{session('alertsuccess')}}</strong>
+		</div>
+	@endif
+
+	@if(session('alerterror'))
+		<div class="alert alert-error custom-alert" >
+		<strong>{{session('alerterror')}}</strong>
+		</div>
+	@endif
+	<!--POPUP ALERT MESSAGES MARKUP END-->
+
 <div class="super_container">
 	
 	<!-- Header -->
@@ -22,7 +37,7 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">Checkout</div>
+							<div class="home_title"><strong>Checkout</strong></div>
 							
 						</div>
 					</div>
@@ -42,22 +57,20 @@
 					<div class="billing">
 						<div class="checkout_title">billing details</div>
 						<div class="checkout_form_container">
-							<form action="#" id="checkout_form">
-								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="First Name" value="John" required="required">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Last Name" value="Doe" required="required">
-								</div>
-							
-								<input type="text" class="checkout_input" placeholder="E-mail" required="required" value="john.doe@gmail.com">
+							<form action="/place-order" method="POST" id="checkout_form">
+								@csrf
+								<input type="text" class="checkout_input" placeholder="First Name" value="{{ $cur_user['name'] }}" required="required" readonly>
+									
+								<input type="text" class="checkout_input" placeholder="E-mail" required="required" value="{{ $cur_user['email'] }}" readonly>
 								
-								<input type="text" class="checkout_input" placeholder="Address" required="required" value="36 West Cleveland Lane 
-Buffalo Grove, IL 60089">
-								<input type="text" class="checkout_input" placeholder="Town" required="required" value="Illinois">
+								<input type="text" class="checkout_input" placeholder="Address" required="required" value="{{ $cur_user['address'] }}" readonly>
+
+								<input type="text" class="checkout_input" placeholder="State" required="required" value="{{ $cur_user['state'] }}" readonly>
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Zipcode" required="required" value="60089">
-									<input type="text" class="checkout_input checkout_input_50" placeholder="Phone No" required="required" value="9883789212">
+									<input type="text" class="checkout_input checkout_input_50" placeholder="Zipcode" required="required" value="{{ $cur_user['pincode'] }}" readonly>
+									<input type="text" class="checkout_input checkout_input_50" placeholder="Phone No" required="required" value="{{ $cur_user['phone'] }}" readonly>
 								</div>
-								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="Leave a comment about your order. Ex: keep the food fresh, strong packaging.">keep the food fresh, strong packaging.</textarea>
+								<textarea name="checkout_comment" id="checkout_comment" class="checkout_comment" placeholder="Leave a comment about your order. Ex: keep the food fresh, strong packaging."></textarea>
 								<!--<div class="billing_options">
 									<div class="billing_account">
 										<input type="checkbox" id="checkbox_account" name="regular_checkbox" class="regular_checkbox checkbox_account">
@@ -85,21 +98,24 @@ Buffalo Grove, IL 60089">
 									<div class="cart_total_title">Product</div>
 									<div class="cart_total_price ml-auto">Total</div>
 								</li>
-								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">5 Pieces Spencer's red capsicum x 1</div>
-									<div class="cart_total_price ml-auto">&#x20B9; 5.00</div>
-								</li>
+
+								@foreach($cartproducts as $cart)
+									<li class="d-flex flex-row align-items-center justify-content-start">
+										<div class="cart_total_title">{{ $cart['productname'] }}</div>
+										<div class="cart_total_price ml-auto">&#x20B9; {{ $cart['productprice'] }}</div>
+									</li>
+								@endforeach
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">Subtotal</div>
-									<div class="cart_total_price ml-auto">&#x20B9; 5.00</div>
+									<div class="cart_total_price ml-auto">&#x20B9; {{ $totalPrice }}</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">Shipping</div>
-									<div class="cart_total_price ml-auto">&#x20B9; 5.00</div>
+									<div class="cart_total_title">Service Charge</div>
+									<div class="cart_total_price ml-auto">&#x20B9; 100</div>
 								</li>
 								<li class="d-flex flex-row align-items-start justify-content-start total_row">
 									<div class="cart_total_title">Total</div>
-									<div class="cart_total_price ml-auto">&#x20B9; 10.00</div>
+									<div class="cart_total_price ml-auto">&#x20B9; {{ $totalPrice+100 }}</div>
 								</li>
 							</ul>
 						</div>
@@ -122,7 +138,7 @@ Buffalo Grove, IL 60089">
 							</div>-->
 							<br>
 							<span>*Payment is to be made at the store after receiving the items.</span>
-							<button class="cart_total_button">place order</button>
+							<button class="cart_total_button">place order</button></a>
 						</div>
 					</div>
 				</div>

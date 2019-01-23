@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" >
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
 			<div class="logo"><a href="/">Baskett</a></div>
 			<nav class="main_nav">
@@ -22,8 +22,25 @@
 			
 					@if (Auth::guard('customer')->check())
 					
-						<a href="#" class="navigation-menu">
-							Hi {{Auth::guard('customer')->user()->name}}!
+						<!-- Cart -->
+						<a href="/cart">
+							<div class="cart">
+								<img src="images/shopping-bag.svg" alt="">
+								
+									<div class="cart_num_container">
+										<div class="cart_num_inner">
+											<div class="cart_num">{{ Session::get('cartproducts')}}</div>
+										</div>
+									</div>
+								
+							</div>
+						</a>
+						
+						<!-- Avatar -->
+						<a href="#">
+							<div class="avatar">
+								<img src="images/avatar.svg" alt="">
+							</div>
 						</a>
 
 						<a href="/customer/logout" class="navigation-menu">
@@ -52,24 +69,7 @@
 
 					@endif
 					
-					<!-- Cart -->
-					<!--<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-							<div class="cart_num_container">
-								<div class="cart_num_inner">
-									<div class="cart_num">1</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					
-					<!-- Avatar -->
-					<!--<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>-->
+				
 				</div>
 			</div>
 

@@ -436,6 +436,7 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -449,10 +450,12 @@ class ComposerStaticInit4b3862f5c941420887f61d3b55b77f5e
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\CustomerAuth\\CheckoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerAuth/CheckoutController.php',
         'App\\Http\\Controllers\\CustomerAuth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerAuth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\CustomerAuth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerAuth/LoginController.php',
         'App\\Http\\Controllers\\CustomerAuth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerAuth/RegisterController.php',
         'App\\Http\\Controllers\\CustomerAuth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerAuth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Controllers\\VendorAuth\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorAuth/DashboardController.php',
         'App\\Http\\Controllers\\VendorAuth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorAuth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\VendorAuth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendorAuth/LoginController.php',

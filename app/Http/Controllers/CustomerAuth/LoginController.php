@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
 use Illuminate\Http\Request;
 use Hash;
+use Session;
 
 class LoginController extends Controller
 {
@@ -75,6 +76,7 @@ class LoginController extends Controller
 
     protected function logout(){
         Auth::guard('customer')->logout();
+        Session::flush();
         return redirect('/');
     }
 

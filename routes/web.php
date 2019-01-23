@@ -11,41 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-Route::get('/signup', function(){
-    return view('signup');
-})->name('signup');
-Route::get('/login', function(){
-    return view('login');
-})->name('login');
+Route::get('/', 'ProductController@viewIndex');
+Route::get('/add-cart/{id}', 'ProductController@addToCart');
+Route::get('/cart','ProductController@viewCart');
+Route::get('/cart/deleteitem/{id}','ProductController@deleteCartItem');
 
-Route::get('/vendor/signup', function(){
-    return view('vendor_register');
-})->name('vendor-signup');
-Route::get('/vendor/login', function(){
-    return view('vendor_login');
-})->name('vendor-login');
+
+Route::get('/checkout', 'CheckoutController@viewPage');
+Route::post('/place-order', 'CheckoutController@placeOrder');
+
+Route::get('/invoice', 'InvoiceController@viewInvoice');
 
 
 
-Route::get('/cart', function(){
-    return view('cart');
-})->name('cart');
 Route::get('/categories', function(){
     return view('categories');
 })->name('categories');
-Route::get('/checkout', function(){
-    return view('checkout');
-})->name('checkout');
-Route::get('/invoice', function(){
-    return view('invoice');
-})->name('invoice');
-/*Route::get('/{id}', function(){
-    return view('product');
-});*/
-
 
 Route::get('/contactus', function(){
     return view('contact');
@@ -53,6 +34,9 @@ Route::get('/contactus', function(){
 Route::get('/aboutus', function(){
     return view('about');
 })->name('about');
+
+
+
 Route::group(['prefix' => 'admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'AdminAuth\LoginController@login');

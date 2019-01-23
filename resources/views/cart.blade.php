@@ -9,6 +9,21 @@
 
 
 @section('main-body')
+
+	<!--POPUP ALERT MESSAGES MARKUP-->
+	@if(session('alertsuccess'))
+		<div class="alert alert-success custom-alert" >
+		<strong>{{session('alertsuccess')}}</strong>
+		</div>
+	@endif
+
+	@if(session('alerterror'))
+		<div class="alert alert-error custom-alert" >
+		<strong>{{session('alerterror')}}</strong>
+		</div>
+	@endif
+	<!--POPUP ALERT MESSAGES MARKUP END-->
+
 <div class="super_container">
 	
 	<!-- Header -->
@@ -53,8 +68,8 @@
 						<div class="cart_bar_title_content ml-auto">
 							<div class="cart_bar_title_content_inner d-flex flex-row align-items-center justify-content-end">
 								<div class="cart_bar_title_price">Price</div>
-								<div class="cart_bar_title_quantity">Quantity</div>
-								<div class="cart_bar_title_total">Total</div>
+								<!---<div class="cart_bar_title_quantity">Quantity</div>-->
+								<!--<div class="cart_bar_title_total">Total</div>-->
 								<div class="cart_bar_title_button"></div>
 							</div>
 						</div>
@@ -65,34 +80,37 @@
 				<div class="col">
 					<div class="cart_products">
 						<ul>
-							<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-								<!-- Product Image -->
-								<div class="cart_product_image"><img src="images/cart_product_1.jpg" alt=""></div>
-								<!-- Product Name -->
-								<div class="cart_product_name"><a href="product.html">2 Piece Swimsuit</a></div>
-								<div class="cart_product_info ml-auto">
-									<div class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
-										<!-- Product Price -->
-										<div class="cart_product_price">$35.00</div>
-										<!-- Product Quantity -->
-										<div class="product_quantity_container">
-											<div class="product_quantity clearfix">
-												<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-												<div class="quantity_buttons">
-													<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-													<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							@foreach($cartproducts as $cart)
+								<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+									<!-- Product Image -->
+									<div class="cart_product_image"><img src="/uploads/products/1547982303.jpg" alt="" height="100px" width="100px"></div>
+									<!-- Product Name -->
+									<div class="cart_product_name"><a href="#">{{ $cart['productname'] }}</a></div>
+									<div class="cart_product_info ml-auto">
+										<div class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+											<!-- Product Price -->
+											<div class="cart_product_price">&#x20B9; {{ $cart['productprice'] }}</div>
+											<!-- Product Quantity -->
+											<!--<div class="product_quantity_container">
+												<div class="product_quantity clearfix">
+													<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+													<div class="quantity_buttons">
+														<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+														<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+													</div>
 												</div>
+											</div>-->
+											<!-- Products Total Price -->
+											<!--<div class="cart_product_total">$35.00</div>-->
+											<!-- Product Cart Trash Button -->
+											<div class="cart_product_button">
+												<a href="/cart/deleteitem/{{$cart['id']}}"><button class="cart_product_remove"><img src="images/trash.png" alt=""></button></a>
 											</div>
 										</div>
-										<!-- Products Total Price -->
-										<div class="cart_product_total">$35.00</div>
-										<!-- Product Cart Trash Button -->
-										<div class="cart_product_button">
-											<button class="cart_product_remove"><img src="images/trash.png" alt=""></button>
-										</div>
 									</div>
-								</div>
-							</li>
+								</li>
+							@endforeach
+
 						</ul>
 					</div>
 				</div>
@@ -101,7 +119,7 @@
 				<div class="col">
 					<div class="cart_control_bar d-flex flex-md-row flex-column align-items-start justify-content-start">
 						<button class="button_clear cart_button">clear cart</button>
-						<button class="button_update cart_button">update cart</button>
+						<!--<button class="button_update cart_button">update cart</button>-->
 						<button class="button_update cart_button_2 ml-md-auto">continue shopping</button>
 					</div>
 				</div>
@@ -124,18 +142,18 @@
 						<ul>
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="cart_total_title">Subtotal</div>
-								<div class="cart_total_price ml-auto">$35.00</div>
+								<div class="cart_total_price ml-auto">&#x20B9; {{$totalPrice}}</div>
 							</li>
 							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Shipping</div>
-								<div class="cart_total_price ml-auto">$5.00</div>
+								<div class="cart_total_title">Service Charge</div>
+								<div class="cart_total_price ml-auto">&#x20B9; 100</div>
 							</li>
 							<li class="d-flex flex-row align-items-center justify-content-start">
 								<div class="cart_total_title">Total</div>
-								<div class="cart_total_price ml-auto">$40.00</div>
+								<div class="cart_total_price ml-auto">&#x20B9; {{$totalPrice+100}}</div>
 							</li>
 						</ul>
-						<button class="cart_total_button">proceed to checkout</button>
+						<a href="/checkout" class="color:inherit;"><button class="cart_total_button">proceed to checkout</button></a>
 					</div>
 				</div>
 			</div>
@@ -144,57 +162,10 @@
 
 	<!-- Newsletter -->
 
-	<div class="newsletter">
+	<!--<div class="newsletter">
 		<div class="newsletter_content">
 			<div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="images/cart_nl.jpg" data-speed="0.8"></div>
 			<div class="container">
-				<div class="row options">
-
-					<!-- Options Item -->
-					<div class="col-lg-3">
-						<div class="options_item d-flex flex-row align-items-center justify-content-start">
-							<div class="option_image"><img src="images/option_1.png" alt=""></div>
-							<div class="option_content">
-								<div class="option_title">30 Days Returns</div>
-								<div class="option_subtitle">No questions asked</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Options Item -->
-					<div class="col-lg-3">
-						<div class="options_item d-flex flex-row align-items-center justify-content-start">
-							<div class="option_image"><img src="images/option_2.png" alt=""></div>
-							<div class="option_content">
-								<div class="option_title">Free Delivery</div>
-								<div class="option_subtitle">On all orders</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Options Item -->
-					<div class="col-lg-3">
-						<div class="options_item d-flex flex-row align-items-center justify-content-start">
-							<div class="option_image"><img src="images/option_3.png" alt=""></div>
-							<div class="option_content">
-								<div class="option_title">Secure Payments</div>
-								<div class="option_subtitle">No need to worry</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Options Item -->
-					<div class="col-lg-3">
-						<div class="options_item d-flex flex-row align-items-center justify-content-start">
-							<div class="option_image"><img src="images/option_4.png" alt=""></div>
-							<div class="option_content">
-								<div class="option_title">24/7 Support</div>
-								<div class="option_subtitle">Just call us</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
 				<div class="row newsletter_row">
 					<div class="col">
 						<div class="section_title_container text-center">
@@ -216,7 +187,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	@include('layout.footer')
 	

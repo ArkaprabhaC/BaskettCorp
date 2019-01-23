@@ -9,12 +9,31 @@
 @endsection
 
 @section('main-body')
+
+	<!--POPUP ALERT MESSAGES MARKUP-->
+	@if(session('alertsuccess'))
+		<div class="alert alert-success custom-alert" >
+		<strong>{{session('alertsuccess')}}</strong>
+		</div>
+	@endif
+
+	@if(session('alerterror'))
+		<div class="alert alert-error custom-alert" >
+		<strong>{{session('alerterror')}}</strong>
+		</div>
+	@endif
+	<!--POPUP ALERT MESSAGES MARKUP END-->
+
+	
 <div class="super_container">
+
 
 	<!-- Header -->
 
 	@include('layout.navbar')
-	
+		
+
+
 	<!-- Home -->
 
 	<div class="home">
@@ -23,7 +42,7 @@
 
 		<div class="home_slider_container">
 			<div class="owl-carousel owl-theme home_slider">
-
+				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
 					<div class="home_slider_background" style="background-image:url(images/grocery-store.jpg)"></div>
@@ -146,16 +165,20 @@
 
 	<div class="arrivals">
 		<div class="container">
+
+		
 			<div class="row">
 				<div class="col">
 					<div class="section_title_container text-center">
 						<div class="section_subtitle">only the best</div>
 						<div class="section_title">Items currently with us</div>
+					
 					</div>
 				</div>
 			</div>
 			<div class="row products_container">
 
+				@foreach($products as $product)
 				<!-- Product -->
 				<div class="col-lg-4 product_col">
 					<div class="product">
@@ -169,103 +192,25 @@
 						</div>
 						<div class="product_content clearfix">
 							<div class="product_info">
-								<div class="product_name"><a href="product.html">Spencer's Red Capsicum (5 pcs)</a></div>
-								<span class="product_price_old">&#x20B9;10</span>
+								<div class="product_name"><a href="product.html">{{ $product->name }}</a></div>
+								<span class="product_price_old">&#x20B9;{{ $product->price }}</span>
 								<span class="product_price_new">&#x20B9;5</span>
 								<span class="product_discount">(10% off)</span>
 							</div>
 							<div class="product_options">
 							
-								<div class="product_fav product_option">+</div>
+								<a href="/add-cart/{{$product->id}}" style="color: inherit;">
+									<div class="product_fav product_option">
+									+
+									</div>
+								</a>
 							</div>
 						</div>
 					</div>
 				
 				</div>
-
-				<!-- Product -->
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/kellogs.jpeg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
-
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Kellogs</a></div>
-								<span class="product_price_old">&#x20B9;100</span>
-								<span class="product_price_new">&#x20B9;90</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-
-					</div>
-					
-
-				</div>
-
-				<!-- Product -->
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/nutella.jpeg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
-							
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Nutella</a></div>
-								<span class="product_price_old">&#x20B9;50</span>
-								<span class="product_price_new">&#x20B9;45</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-
-				<div class="col-4 col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-
-							<img src="images/yoghurt.jpeg" class=" p-4" style="display: block;margin: 1.5rem auto;" height="300" width="320" alt="">
-							
-							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
-							</div>
-						</div>
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Yoghurt</a></div>
-								<span class="product_price_old">&#x20B9;30</span>
-								<span class="product_price_new">&#x20B9;27</span>
-								<span class="product_discount">(10% off)</span>
-							</div>
-							<div class="product_options">
-								
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
+				@endforeach
+				
 
 	
 			</div>
@@ -274,7 +219,7 @@
 
 	<!-- Newsletter -->
 
-	<div class="newsletter">
+	<!--<div class="newsletter">
 		<div class="newsletter_content">
 			<div class="newsletter_image" style="background-image:url(images/newsletter.jpg)"></div>
 			<div class="container">
@@ -299,6 +244,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 @include('layout.footer')
 @endsection

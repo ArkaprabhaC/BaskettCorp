@@ -1362,7 +1362,7 @@ class RegisterController extends Controller
 
             $request->validate([
                 'vendorname' => 'required|max:255',
-                'email' => 'required|unique',
+                'email' => 'required|unique:vendors',
                 'password' => 'required',
                 'phone' => 'required',
                 'storename' => 'required',
@@ -1400,7 +1400,7 @@ class RegisterController extends Controller
             }
         }else{
             //echo "passwords don't match, go back and try again!";
-            return redirect('/vendor/register')->with('alert','passwords don\'t match, go back and try again!');
+            return redirect('/vendor/register')->with('alert','passwords don\'t match, try again!');
         }
     }
 }

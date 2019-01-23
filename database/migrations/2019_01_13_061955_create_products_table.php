@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('image')->nullable();
             $table->date('expirydate');
+            
             $table->string('soldStatus')->default("NO");
             
             $table->integer('vendorID')->unsigned();
