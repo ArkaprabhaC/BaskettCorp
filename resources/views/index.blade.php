@@ -1,5 +1,5 @@
-@extends('layout.app')
 
+@extends('layout.app')
 @section('title','Baskett')
 
 @section('custom-styles')
@@ -178,16 +178,20 @@
 			</div>
 			<div class="row products_container">
 
-				@foreach($products as $product)
+				
 				<!-- Product -->
+				
+				@foreach($products as $product)
 				<div class="col-lg-4 product_col">
 					<div class="product">
 						<div class="product_image">
 
-							<img src="images/capsicum2.jpg" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
+						<img src="{{url('images',$product->image)}}" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
 							
 							<div class="product_expiry">
-								<div class="text-uppercase">Expires in 4 days</div>
+								<div class="text-uppercase">
+									
+									Expires in {{$datediff[$product->id]->days}} day(s)</div>
 							</div>
 						</div>
 						<div class="product_content clearfix">
@@ -211,7 +215,6 @@
 				</div>
 				@endforeach
 				
-
 	
 			</div>
 		</div>

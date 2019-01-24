@@ -23,6 +23,8 @@ Route::post('/place-order', 'CheckoutController@placeOrder');
 Route::get('/invoice', 'InvoiceController@viewInvoice');
 
 
+//Route::get('/', 'ProductController@datecal');
+
 
 Route::get('/categories', function(){
     return view('categories');
@@ -86,3 +88,4 @@ Route::group(['prefix' => 'vendor'], function () {
   Route::get('/password/reset', 'VendorAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'VendorAuth\ResetPasswordController@showResetForm');
 });
+//Route::get('/','ProductController@index');

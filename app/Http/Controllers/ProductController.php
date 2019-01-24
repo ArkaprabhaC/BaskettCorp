@@ -11,16 +11,19 @@ use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
 use Illuminate\Http\Request;
 use Session;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
     protected function viewIndex(Request $request){
         
         $products = Product::all();
-        
+        $datediff=array();
+    
 
         if(Auth::guard('customer')->check()){
             $cust_id = Auth::guard('customer')->user()->id;
+
             //get the tuples of all the cart products for the current authenticated customer
             $get_tuples_no = count(Cart::where(['custID'=>$cust_id])->get());
             if($get_tuples_no > 0){
@@ -28,11 +31,13 @@ class ProductController extends Controller
             }else{
                 $request->session()->put('cartproducts', 0);
             }
-        }else{
-            echo "error in viewIndex";
         }
 
-        return view('index',['products' => $products]);
+        //For date calculation using the Carbon library
+        foreach($products as $prod){
+            $datediff[$prod->id] = $this->datecal($prod->id);
+        }
+        return view ('index',['products' => $products, 'datediff' => $datediff]);
     }
     protected function addToCart(Request $request, $id)
     {
@@ -90,5 +95,20 @@ class ProductController extends Controller
         }else{
             return redirect('/');
         }
+    }
+
+    /**
+     * Days remaining to expire of a product using the Carbon library
+     */
+    protected function datecal($id)
+    {
+        $ed=Product::all();
+
+        $today=Carbon::today();
+        $prod=Product::find($id);
+        $expd=date_create($prod->expirydate);
+        $datediff=date_diff($expd,$today);
+        return $datediff;
+        //return view('index')->with('datediff',$datediff);
     }
 }
