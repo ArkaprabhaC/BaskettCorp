@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -59,5 +60,22 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+
+     /** Logs the vendor in from the vendor guard */
+     protected function login(Request $request){
+        if (Auth::guard('admin')->attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
+            // Authentication passed...
+            return redirect('/admin/dashboard');
+        }else{
+            //echo "something wrong";
+            return redirect('/admin/login')->with('alert','Wrong email or password');
+        }
+    }
+
+    /** Logs the vendor out from the vendor guard */
+    protected function logout(){
+        Auth::guard('admin')->logout();
+        return redirect('/');
     }
 }

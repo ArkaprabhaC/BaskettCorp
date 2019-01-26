@@ -6,8 +6,18 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
+                    
+                    <!--FORM VALIDATION--->
+						@if(session('alert'))
+							<div class="alert alert-danger page-alert m-3" id="alert-4">
+								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								 {{ session('alert') }}
+							
+							</div>
+						@endif
+
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="/admin/register">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

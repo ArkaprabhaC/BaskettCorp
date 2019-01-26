@@ -11,12 +11,7 @@
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required">
-						<button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
+
 				<div class="shopping">
 					
 			
@@ -37,7 +32,7 @@
 						</a>
 						
 						<!-- Avatar -->
-						<a href="#">
+						<a href="/profile">
 							<div class="avatar">
 								<img src="images/avatar.svg" alt="">
 							</div>
@@ -49,7 +44,7 @@
 
 					@elseif (Auth::guard('vendor')->check())
 						
-						<a href="/vendor/dashboard" class="navigation-menu">
+						<a href="/vendor/dashboard/addproduct" class="navigation-menu">
 							Take me to dashboard
 						</a>
 						

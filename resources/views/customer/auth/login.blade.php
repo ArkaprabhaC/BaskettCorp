@@ -38,7 +38,7 @@
 						<small style="padding-left: 2.1rem;">Vendor signin</small>
 						
 						<div class="text-center mx-auto col-10 mt-3 pb-2">
-							<a href="/vendor/login" class="btn btn-primary col-12" >Vendor login</a>
+							<a href="/vendor/login" class="btn btn-primary col-12" >Vendor Login</a>
 						</div>
 
 						<hr>
@@ -61,7 +61,7 @@
                             	</a>
 							</div>
 
-							<input type="submit" name="submit" value="Log in" style="display: block;cursor: pointer;" class="btn btn-primary mx-auto"></input>
+							<input type="submit" name="submit" value="Log in" style="display: block;cursor: pointer;" class="btn btn-primary mx-auto">
 							
 						</form>
 

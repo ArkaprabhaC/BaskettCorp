@@ -42,15 +42,10 @@ class DashboardController extends Controller
         if ($request->hasFile('product_image')) {
             $getproduct = $request->file('product_image');
             $filename = time().'.'.$getproduct->getClientOriginalExtension();
-            Image::make($getproduct)->resize(300, 300)->save( public_path('/uploads/products/'.$filename));
+            Image::make($getproduct)->resize(500, 500)->save( public_path('/uploads/products/'.$filename));
 
             $product->image = $filename;
             
-
-
-            /*$file = $request->product_image;
-            $path = $file->store('public/images/products');
-            $product->image = $path;*/
         }
 
         $product->expirydate = $request->expiry_date;

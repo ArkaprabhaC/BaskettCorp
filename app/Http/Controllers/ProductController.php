@@ -63,13 +63,13 @@ class ProductController extends Controller
     }
 
     protected function viewCart(){
-        //dd();
+        
         if(Auth::guard('customer')->check()){
             $cust_id = Auth::guard('customer')->user()->id;
             $get_cart = Cart::where(['custID'=>$cust_id])->get()->toArray();
             
             $totalPrice = Cart::where('custID',$cust_id)->sum('productprice');
-            //dd($max);
+            
             return view('cart',['cartproducts' => $get_cart, 'totalPrice' => $totalPrice]);
         }else{
             return redirect('/');
@@ -81,7 +81,8 @@ class ProductController extends Controller
         if(Auth::guard('customer')->check()){
             $cust_id = Auth::guard('customer')->user()->id;
             Cart::where(['id' => $id, 'custID' => $cust_id])->delete();
-            //dd($del);
+            
+
 
             //get the tuples of all the cart products for the current authenticated customer
             $get_tuples_no = count(Cart::where(['custID'=>$cust_id])->get());
@@ -109,6 +110,6 @@ class ProductController extends Controller
         $expd=date_create($prod->expirydate);
         $datediff=date_diff($expd,$today);
         return $datediff;
-        //return view('index')->with('datediff',$datediff);
+        
     }
 }

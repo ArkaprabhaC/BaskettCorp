@@ -22,7 +22,8 @@ Route::post('/place-order', 'CheckoutController@placeOrder');
 
 Route::get('/invoice', 'InvoiceController@viewInvoice');
 
-
+Route::get('/profile', 'CustomerAuth\ProfileController@viewProfile');
+Route::post('/profile/update', 'CustomerAuth\ProfileController@updateUser');
 //Route::get('/', 'ProductController@datecal');
 
 
@@ -46,6 +47,9 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
+
+  Route::get('/dashboard', 'AdminAuth\DashboardController@viewDashboard');
+  //Route::post('/dashboard/addproduct', 'VendorAuth\DashboardController@addProduct');
 
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
@@ -75,8 +79,8 @@ Route::group(['prefix' => 'vendor'], function () {
   Route::get('/register', 'VendorAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'VendorAuth\RegisterController@register');
   
-  Route::get('/dashboard', 'VendorAuth\DashboardController@showDashboardPage');
-  Route::post('/dashboard', 'VendorAuth\DashboardController@addProduct');
+  Route::get('/dashboard/addproduct', 'VendorAuth\DashboardController@showDashboardPage');
+  Route::post('/dashboard/addproduct', 'VendorAuth\DashboardController@addProduct');
   Route::get('/dashboard/removeproduct', 'VendorAuth\DashboardController@showRemoveProductPage');
   Route::post('/dashboard/removeproduct', 'VendorAuth\DashboardController@removeProduct');
   Route::get('/dashboard/settings', 'VendorAuth\DashboardController@showSettingsPage');

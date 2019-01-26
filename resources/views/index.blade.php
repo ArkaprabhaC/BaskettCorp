@@ -186,7 +186,7 @@
 					<div class="product">
 						<div class="product_image">
 
-						<img src="{{url('images',$product->image)}}" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
+						<img src="/uploads/products/{{$product->image}}" class=" p-4" style="display: block;margin: 0 auto;" height="300" width="320" alt="">
 							
 							<div class="product_expiry">
 								<div class="text-uppercase">

@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Hash;
 
 class RegisterController extends Controller
 {
@@ -89,4 +91,45 @@ class RegisterController extends Controller
     {
         return Auth::guard('admin');
     }
+
+    /*
+    * Registers the vendor with the system 
+    */
+    protected function register(Request $request){
+        
+        $admin = new Admin;
+
+        if($request->get('password_confirmation') === $request->get('password')){
+
+            $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|unique:admins',
+                'password' => 'required'
+            ]);
+
+            //$password =  $request->get('password');
+
+            $admin->name = $request->get('name');
+            $admin->email = $request->get('email');
+            $admin->password = Hash::make($request->get('password'));
+           
+           
+            $admin->save();
+    
+            //$credentials = $request->only('email', 'password');
+    
+            if (Auth::guard('admin')->attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
+                // Authentication passed...
+                return redirect('/admin/dashboard');
+                
+            }else{
+                //echo "something wrong";
+                return redirect('/admin/register')->with('alert','Oops. Something happened. Try again later or contact customer support.');
+            }
+        }else{
+            //echo "passwords don't match, go back and try again!";
+            return redirect('/admin/register')->with('alert','passwords don\'t match, try again!');
+        }
+    }
+    
 }

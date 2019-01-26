@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.vendordash')
 
 @section('page-header', 'Add Products')
 @section('optional-description', 'you can add products from here')

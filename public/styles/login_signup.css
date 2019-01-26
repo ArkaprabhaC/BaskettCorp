@@ -46,21 +46,33 @@ html,body{
 	color: #000;
 }
 
-.btn{
-	border-radius: 0px !important;
-	font-family: 'Archivo', sans-serif;
+.form-control{
+    border: 0px;
+    border-bottom:2px solid grey;
+    border-radius:0px;
+	padding-left:0px;
+	color:black;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-color: greenyellow;
+}
+.form-label{
+    font-size:0.8rem;
 }
 .btn-primary{
-	background-color: transparent !important;
-	color: #000;
-	transition:0.3s; 
-	border: 1px solid #000;
+    background-color:transparent;
+    border:2px solid black;
+    border-radius: 0px;
+    color:black;
+	padding:0.5rem 2rem;
 }
 .btn-primary:hover{
-	background-color: #28a745 !important;
-	color: #fff;
+    border:2px solid rgb(47, 77, 3);
+    background-color:rgb(153, 255, 0);
+    cursor:pointer;
+    color:black;
 }
-
 @media screen and (max-width: 992px) { 
 	.background{
 		display: none;
@@ -72,3 +84,4 @@ html,body{
 		margin-bottom: 2rem;
 	}
 }
+

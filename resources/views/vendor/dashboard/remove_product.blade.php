@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.vendordash')
 
 @section('page-header', 'Remove Products')
 @section('optional-description', 'you can remove your products from the system here')
