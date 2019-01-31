@@ -53,7 +53,7 @@ class DashboardController extends Controller
 
         $product->save();
         
-        return redirect('/vendor/dashboard')->with('alert-success','Your product has been posted!');
+        return redirect('/vendor/dashboard/addproduct')->with('alert-success','Your product has been posted!');
 
     }
 
@@ -1360,16 +1360,6 @@ class DashboardController extends Controller
     protected function updateProfile(Request $request){
 
         $vendor = Auth::guard('vendor')->user();
-
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time().'.'.$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(180, 180)->save( public_path('/uploads/avatars/'.$filename));
-
-            //$vendor = Auth::guard('vendor')->user();
-            $vendor->avatar = $filename;
-            //$vendor->save();
-        }
 
         $vendor->vendorname=$request->name;
         $vendor->email = $request->email;

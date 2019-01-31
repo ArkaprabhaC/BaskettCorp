@@ -43,13 +43,24 @@ Route::get('/aboutus', function(){
 Route::group(['prefix' => 'admin'], function () {
   Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'AdminAuth\LoginController@login');
-  Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
+  Route::get('/logout', 'AdminAuth\LoginController@logout')->name('logout');
 
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
 
   Route::get('/dashboard', 'AdminAuth\DashboardController@viewDashboard');
+  Route::get('/viewcustomers', 'AdminAuth\DashboardController@viewCustomerPage');
+  Route::get('/viewvendors', 'AdminAuth\DashboardController@viewVendorPage');
+  Route::get('/settings', 'AdminAuth\DashboardController@viewSettingsPage');
+  Route::post('/updateprofilepic', 'AdminAuth\DashboardController@updateProfilePicture');
+  Route::post('/settings', 'AdminAuth\DashboardController@updateProfile');
   //Route::post('/dashboard/addproduct', 'VendorAuth\DashboardController@addProduct');
+
+  Route::post('/deletecustomer/{id}', 'AdminAuth\DashboardController@deleteCustomer');
+  Route::post('/editcustomer/{id}', 'AdminAuth\DashboardController@editCustomer');
+  Route::post('/deletevendor/{id}', 'AdminAuth\DashboardController@deleteVendor');
+  Route::get('/dashboard', 'AdminAuth\DashboardController@viewDashboard');
+
 
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
@@ -85,7 +96,7 @@ Route::group(['prefix' => 'vendor'], function () {
   Route::post('/dashboard/removeproduct', 'VendorAuth\DashboardController@removeProduct');
   Route::get('/dashboard/settings', 'VendorAuth\DashboardController@showSettingsPage');
   Route::post('/dashboard/settings', 'VendorAuth\DashboardController@updateProfile');
-  Route::post('dashboard/updateprofilepic', 'VendorAuth\DashboardController@updateProfilePicture');
+  Route::post('/dashboard/updateprofilepic', 'VendorAuth\DashboardController@updateProfilePicture');
 
   Route::post('/password/email', 'VendorAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'VendorAuth\ResetPasswordController@reset')->name('password.email');

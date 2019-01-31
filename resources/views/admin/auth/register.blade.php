@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                     
-                    <!--FORM VALIDATION--->
+                    <!--FORM EEROR MESSAGES--->
 						@if(session('alert'))
 							<div class="alert alert-danger page-alert m-3" id="alert-4">
 								<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>

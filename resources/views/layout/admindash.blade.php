@@ -32,6 +32,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" 
+        href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -92,7 +94,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="/uploads/avatars/default.jpg" class="img-circle" alt="User Image">
+                        <img src="/uploads/avatars/{{Auth::guard('admin')->user()->avatar}}" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -119,14 +121,14 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="/uploads/avatars/default.jpg" class="user-image" alt="User Image">
+              <img src="/uploads/avatars/{{Auth::guard('admin')->user()->avatar}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{Auth::guard('admin')->user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="/uploads/avatars/default.jpg" class="img-circle" alt="User Image">
+                <img src="/uploads/avatars/{{Auth::guard('admin')->user()->avatar}}" class="img-circle" alt="User Image">
 
                 <p>
                   {{Auth::guard('admin')->user()->name}}
@@ -137,10 +139,10 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/vendor/dashboard/settings" class="btn btn-default btn-flat">Settings</a>
+                  <a href="/admin/settings" class="btn btn-default btn-flat">Settings</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/vendor/logout" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/admin/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -159,7 +161,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/uploads/avatars/default.jpg" class="img-circle" alt="User Image">
+          <img src="/uploads/avatars/{{Auth::guard('admin')->user()->avatar}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{Auth::guard('admin')->user()->name}}</p>
@@ -172,6 +174,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
+        <li><a href="/admin/dashboard"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
 
         <li class="treeview">
           <a href="#">
@@ -182,7 +185,7 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-eye"></i> View Customers </a></li>
+            <li><a href="/admin/viewcustomers"><i class="fa fa-eye"></i> View Customers </a></li>
           </ul>
         </li>
 
@@ -195,11 +198,11 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-eye"></i> View Vendors </a></li>
+            <li><a href="/admin/viewvendors"><i class="fa fa-eye"></i> View Vendors </a></li>
           </ul>
         </li>
 
-        <li><a href=""><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+        <li><a href="/admin/settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
        
       </ul>
       <!-- /.sidebar-menu -->
@@ -277,6 +280,14 @@ desired effect
   document.getElementById("file-upload").onchange = function() {
     document.getElementById("update-profile-pic").submit();
   };
+  
+</script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script>
+    //Script for data tables-
+    $(document).ready( function () {
+        $('#datatable').DataTable();
+    });
 </script>
 </body>
 </html>
