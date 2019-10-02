@@ -6,7 +6,7 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="/categories">Categories</a></li>
 					<li><a href="/categories">About Us</a></li>
-					<li><a href="/categories">What We Do</a></li>
+					<li><a href="/whatwedo">What We Do</a></li>
 					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</nav>

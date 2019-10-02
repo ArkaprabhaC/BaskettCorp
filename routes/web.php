@@ -16,7 +16,6 @@ Route::get('/add-cart/{id}', 'ProductController@addToCart');
 Route::get('/cart','ProductController@viewCart');
 Route::get('/cart/deleteitem/{id}','ProductController@deleteCartItem');
 
-
 Route::get('/checkout', 'CheckoutController@viewPage');
 Route::post('/place-order', 'CheckoutController@placeOrder');
 
@@ -37,6 +36,9 @@ Route::get('/contactus', function(){
 Route::get('/aboutus', function(){
     return view('about');
 })->name('about');
+Route::get('/whatwedo', function(){
+  return view('whatwedo');
+})->name('whatwedo');
 
 
 
