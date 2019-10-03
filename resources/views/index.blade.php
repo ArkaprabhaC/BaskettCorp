@@ -121,7 +121,7 @@
 						<div class="promo_image">
 							<img src="images/cereal.jpg" alt="">
 							<div class="promo_content promo_content_1">
-								<div class="promo_title">-30% off</div>
+								<div class="promo_title">30% off</div>
 								<div class="promo_subtitle">on Cereals</div>
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 						<div class="promo_image">
 							<img src="images/beach-beverage.jpg" alt="">
 							<div class="promo_content promo_content_2">
-								<div class="promo_title">-30% off</div>
+								<div class="promo_title">30% off</div>
 								<div class="promo_subtitle">on Beverages</div>
 							</div>
 						</div>
@@ -149,7 +149,7 @@
 						<div class="promo_image">
 							<img src="images/wheat.jpg" alt="">
 							<div class="promo_content promo_content_3">
-								<div class="promo_title">-25% off</div>
+								<div class="promo_title">25% off</div>
 								<div class="promo_subtitle">on Grains</div>
 							</div>
 						</div>
