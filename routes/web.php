@@ -33,10 +33,10 @@ Route::get('/categories', function(){
 Route::get('/contactus', function(){
     return view('contact');
 })->name('contact');
-Route::get('/aboutus', function(){
-    return view('about');
+Route::get('/about', function(){
+    return view('aboutus');
 })->name('about');
-Route::get('/whatwedo', function(){
+Route::get('/what-we-do', function(){
   return view('whatwedo');
 })->name('whatwedo');
 

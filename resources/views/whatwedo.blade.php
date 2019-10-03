@@ -5,6 +5,8 @@
 @section('custom-styles')
 <link rel="stylesheet" type="text/css" href="styles/product.css">
 <link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/whatwedo.css">
+
 @endsection
 
 
@@ -17,26 +19,33 @@
 
 	<!-- What We Do -->
     <div class="whatwedo-outer">
-		<div class="container" style="margin-top:30vh;">
-			
-				<div class="col-12">
-                    <p>What started as a coffee table conversation is now a registered organization with a mission to eliminate world food wastage
-                     and provide the poorer sections of the society with high-quality affordable groceries.</p>
+		<div class="container" >
 
-                    <h3>Our Founders: </h3>
-                    <div class="col-4">
-                        <img src="images/Arkaprabha.jpg" style="height:200px;width:auto;border-radius:50%;display:block;margin:0 auto;"/>
-                        <p style="text-align:center">Arkaprabha Chatterjee</p>
-                        <p style="text-align:center">Co-Founder & Tech Lead</p>
-                    </div>
-                    <div class="col-4">
-                        <img src="images/Arkaprabha.jpg" style="height:200px;width:auto;border-radius:50%;display:block;margin:0 auto;"/>
-                        <p style="text-align:center">Arkaprabha Chatterjee</p>
-                        <p style="text-align:center">Co-Founder & Tech Lead</p>
-                    </div>
-                    <div class="col-4">
-                        <img src="images/Arkaprabha.jpg" style="height:200px;width:auto;border-radius:50%;display:block;margin:0 auto;"/>
-                        <p style="text-align:center">Arkaprabha Chatterjee</p>
-                        <p style="text-align:center">Co-Founder & Tech Lead</p>
-                    </div>
+            <p>
+                Baskett provides solutions to retailers, wholesalers and distributors to vend off fruits, vegetables &amp; groceries that
+                are nearing the end of their shelf life at optimal prices so that:</p>
+                <ul>
+                    <li> Retailers can cover their losses that they accrue from unsold perished groceries. </li>
+                    <li> Customers can buy F&amp;V and other groceries at jaw-dropping discounts </li>
+                    <li> Food Wastage is virtually eliminated!</li>
+                </ul>
+            <p>
+                In short, a win-win-win situation!
+                We received our first round of funding from Instade LLP. and IEM-UEM Trust in 2018, amounting to a total of
+                INR 65,000 ($950). We love our investors, who have mentored us throughout this wonderful journey!
+            </p>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img src="images/Pr.png" class="product-screens"/>
                 </div>
+                <div class="col-12 col-md-6">
+                    <img src="images/PF.png" class="product-screens"/>
+                </div>
+            </div>
+            
+        </div>  
+    </div> 
+
+    @include('layout.footer')	
+@endsection

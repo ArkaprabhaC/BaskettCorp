@@ -5,8 +5,8 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/categories">Categories</a></li>
-					<li><a href="/categories">About Us</a></li>
-					<li><a href="/whatwedo">What We Do</a></li>
+					<li><a href="/about">About Us</a></li>
+					<li><a href="/what-we-do">What We Do</a></li>
 					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -79,11 +79,11 @@
 		<div class="logo menu_mm"><a href="#">Baskett</a></div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="#">Home</a></li>
-				<li class="menu_mm"><a href="#">Categories</a></li>
-				<li class="menu_mm"><a href="#">Register/Login</a></li>
-				<li class="menu_mm"><a href="#">About Us</a></li>
-				<li class="menu_mm"><a href="#">Contact</a></li>
+				<li class="menu_mm"><a href="/">Home</a></li>
+				<li class="menu_mm"><a href="/categories">Categories</a></li>
+				<li class="menu_mm"><a href="/about">About Us</a></li>
+				<li class="menu_mm"><a href="/what-we-do">What We Do</a></li>
+				<li class="menu_mm"><a href="/contact">Contact</a></li>
 			</ul>
 		</nav>
 	</div>

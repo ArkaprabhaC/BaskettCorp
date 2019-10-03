@@ -1,0 +1,52 @@
+.col-4{
+    margin:0;
+}
+.row{
+    margin-top: 40px;
+}
+.aboutus-outer p:nth-child(1){
+    margin-top:25vh;
+    font-family: 'Lucida', serif;
+    font-size: 20px;
+    line-height: 150%;
+    color: #000;
+}
+.aboutus-outer h3 span{
+     border-bottom: 2px solid #000;
+}
+
+.content p:nth-child(2){
+    font-size: 20px;
+    font-family: 'Lucida', serif;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #000;
+}
+.content p:nth-child(3){
+    font-family: 'Lucida', serif;
+    margin-top: 2px;
+    color: #000;
+}
+.footer_logo a
+{
+	font-family: 'Lucida', serif;
+	font-size: 35px;
+	color: #232323;
+}
+.img-founders{
+    height:200px;
+    width:auto;
+    border-radius:50%;
+    display:block;
+    margin:0 auto;
+}
+@media screen and (max-width: 600px){
+    .aboutus-outer p:nth-child(1){
+        margin-top: 10vh;
+        font-size: 17px;
+    }
+    .footer_logo a
+    {
+        font-size: 25px;
+    }
+}

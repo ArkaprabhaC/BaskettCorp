@@ -1,0 +1,50 @@
+.whatwedo-outer{
+    margin-top: 25vh;
+
+}
+.row{
+    margin-top: 40px;
+}
+.whatwedo-outer ul{
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: 'Lucida', serif;
+    color: #000;
+}
+.whatwedo-outer p{
+    font-size: 20px;
+    font-family: 'Lucida', serif;
+    color: #000;
+    line-height: 150%;
+}
+.whatwedo-outer p:nth-child(3){
+    margin-top: 20px;
+}
+.footer_logo a
+{
+	font-family: 'Lucida', serif;
+	font-size: 35px;
+	color: #232323;
+}
+.product-screens{
+        height:300px;
+        width:auto;
+        display:block;
+        margin:0 auto 20px auto;
+}
+@media screen and (max-width: 600px){
+    .whatwedo-outer{
+        margin-top: 13vh;
+    }
+    .whatwedo-outer p{
+        font-size: 17px;
+    }
+    .whatwedo-outer ul{
+        font-size: 17px;
+    }
+    .footer_logo a
+    {
+        font-size: 25px;
+    }
+}
